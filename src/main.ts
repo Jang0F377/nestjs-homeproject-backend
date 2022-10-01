@@ -1,7 +1,8 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { CustomExceptionFilter } from './common/filters/custom-exception.filter';
+import { CustomBlanketExceptionFilter } from './common/filters/custom-blanket-exception.filter';
+import { CustomForbiddenFilter } from './common/filters/custom-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,7 +16,10 @@ async function bootstrap() {
       },
     }),
   );
-  app.useGlobalFilters(new CustomExceptionFilter());
+  app.useGlobalFilters(
+    new CustomForbiddenFilter(),
+    new CustomBlanketExceptionFilter(),
+  );
   await app.listen(3000);
 }
 bootstrap();

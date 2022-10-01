@@ -1,14 +1,14 @@
 import {
   ArgumentsHost,
+  BadRequestException,
   Catch,
   ExceptionFilter,
-  ForbiddenException,
   HttpException,
 } from '@nestjs/common';
 import { Response } from 'express';
 
-@Catch(ForbiddenException)
-export class CustomForbiddenFilter<T extends HttpException>
+@Catch(BadRequestException)
+export class CustomBlanketExceptionFilter<T extends HttpException>
   implements ExceptionFilter
 {
   catch(exception: T, host: ArgumentsHost) {
@@ -24,7 +24,6 @@ export class CustomForbiddenFilter<T extends HttpException>
     response.status(status).json({
       ...error,
       timestamp: new Date().toISOString(),
-      warning: 'This will be reported',
     });
   }
 }
