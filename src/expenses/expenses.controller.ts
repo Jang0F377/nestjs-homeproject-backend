@@ -9,12 +9,10 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { Public } from 'src/common/decorators/public.decorator';
-import { LoggingInterceptor } from 'src/common/interceptors/test-interceptor.interceptor';
 import { ExpenseDto } from './dto/expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { ExpensesService } from './expenses.service';
 
-@UseInterceptors(new LoggingInterceptor())
 @Controller('expenses')
 export class ExpensesController {
   constructor(private readonly expensesService: ExpensesService) {}
@@ -45,7 +43,7 @@ export class ExpensesController {
 
   @Delete()
   clearDatabase() {
-    return this.expensesService.clearDatabase();
+    return this.expensesService.clearExpenseDatabase();
   }
 
   @Delete(':id')

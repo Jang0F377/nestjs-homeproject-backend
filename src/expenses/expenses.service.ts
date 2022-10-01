@@ -44,12 +44,12 @@ export class ExpensesService {
     }
   }
 
-  async clearDatabase() {
+  async clearExpenseDatabase() {
     return await this.expenseModel.deleteMany();
   }
 
   async removeExpense(id: string) {
-    const toRemove = await this.findOneExpense(id);
-    return toRemove.remove();
+    const toRemove = await this.expenseModel.deleteOne({ _id: id });
+    return toRemove;
   }
 }

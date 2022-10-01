@@ -1,7 +1,7 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { LoggingInterceptor } from './common/interceptors/test-interceptor.interceptor';
+import { CustomExceptionFilter } from './common/filters/custom-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,6 +15,7 @@ async function bootstrap() {
       },
     }),
   );
+  app.useGlobalFilters(new CustomExceptionFilter());
   await app.listen(3000);
 }
 bootstrap();
