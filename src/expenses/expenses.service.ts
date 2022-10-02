@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Event } from 'src/events/event.entity';
 import { ExpenseDto } from './dto/expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { Expense } from './entities/expense.entity';
@@ -10,7 +9,6 @@ import { Expense } from './entities/expense.entity';
 export class ExpensesService {
   constructor(
     @InjectModel(Expense.name) private readonly expenseModel: Model<Expense>,
-    @InjectModel(Event.name) private readonly eventModel: Model<Event>,
   ) {}
 
   async returnAllExpenses() {
@@ -35,13 +33,7 @@ export class ExpensesService {
       .findOneAndUpdate({ _id: id }, { $set: updatedExpense }, { new: true })
       .exec();
 
-    if (existingExpense) {
-      return new this.eventModel({
-        type: 'update_expense',
-        status: 'SUCCESS',
-        payload: { item: updatedExpense },
-      });
-    }
+    return existingExpense;
   }
 
   async clearExpenseDatabase() {

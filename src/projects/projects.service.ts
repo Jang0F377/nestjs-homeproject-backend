@@ -16,7 +16,7 @@ export class ProjectsService {
   }
 
   async findOneProject(id: string) {
-    const project = await this.projectModel.findOne({ _id: id }).exec();
+    const project = await this.projectModel.findById(id).exec();
     if (!project) {
       throw new NotFoundException();
     }
@@ -37,7 +37,7 @@ export class ProjectsService {
   }
 
   async removeProject(id: string) {
-    const toRemove = await this.projectModel.deleteOne({ _id: id });
+    const toRemove = await this.projectModel.findByIdAndDelete(id);
     return toRemove;
   }
 

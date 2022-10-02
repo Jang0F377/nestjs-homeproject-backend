@@ -8,6 +8,7 @@ import { ProjectsService } from './projects.service';
   imports: [
     MongooseModule.forFeature([{ name: Project.name, schema: ProjectSchema }]),
   ],
+  exports: [ProjectsService],
   controllers: [ProjectsController],
   providers: [ProjectsService],
 })

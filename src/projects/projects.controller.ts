@@ -22,16 +22,19 @@ export class ProjectsController {
     return this.projectsService.returnAllProjects();
   }
 
+  @Public()
   @Get(':id')
   findOneProject(@Param('id') id: string) {
     return this.projectsService.findOneProject(id);
   }
 
+  @Public()
   @Post()
   createProject(@Body() newProject: ProjectDto) {
     return this.projectsService.createProject(newProject);
   }
 
+  @Public()
   @Patch(':id')
   updateProject(
     @Param('id') id: string,
@@ -40,11 +43,13 @@ export class ProjectsController {
     return this.projectsService.updateProject(id, updatedProject);
   }
 
+  @Public()
   @Delete()
   clearProjectDatabase() {
     return this.projectsService.clearProjectDatabase();
   }
 
+  @Public()
   @Delete(':id')
   removeProject(@Param('id') id: string) {
     return this.projectsService.removeProject(id);
