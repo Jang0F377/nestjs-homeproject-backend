@@ -12,7 +12,7 @@ export class SarahService {
   ) {}
 
   async returnAllSarah() {
-    return await this.sarahModel.find().exec();
+    return await this.sarahModel.find().sort({ priority: 1 }).exec();
   }
 
   async findOneSarah(id: string) {

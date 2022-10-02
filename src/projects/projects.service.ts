@@ -12,7 +12,7 @@ export class ProjectsService {
   ) {}
 
   async returnAllProjects() {
-    return await this.projectModel.find().exec();
+    return await this.projectModel.find().sort({ priority: 1 }).exec();
   }
 
   async findOneProject(id: string) {

@@ -1,5 +1,7 @@
 import {
   IsAlphanumeric,
+  IsJSON,
+  IsNotEmpty,
   IsString,
   MaxLength,
   MinLength,
@@ -24,6 +26,7 @@ export class LoginDto {
   })
   readonly password: string;
 
+  @IsString()
   @MinLength(2, {
     message: 'Validation Unsuccessful Please try again',
   })

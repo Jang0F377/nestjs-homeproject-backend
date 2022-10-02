@@ -11,8 +11,8 @@ export class ExpensesService {
     @InjectModel(Expense.name) private readonly expenseModel: Model<Expense>,
   ) {}
 
-  async returnAllExpenses() {
-    return await this.expenseModel.find().exec();
+  async returnAllExpensesAscending() {
+    return await this.expenseModel.find().sort({ dayCharged: 1 }).exec();
   }
 
   async findOneExpense(id: string) {

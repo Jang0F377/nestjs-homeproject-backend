@@ -12,7 +12,7 @@ export class MattService {
   ) {}
 
   async returnAllMatt() {
-    return await this.mattModel.find().exec();
+    return await this.mattModel.find().sort({ priority: 1 }).exec();
   }
 
   async findOneMatt(id: string) {

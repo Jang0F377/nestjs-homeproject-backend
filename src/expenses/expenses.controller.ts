@@ -16,10 +16,10 @@ import { ExpensesService } from './expenses.service';
 @Controller('expenses')
 export class ExpensesController {
   constructor(private readonly expensesService: ExpensesService) {}
-
+  @Public()
   @Get()
   returnAllExpenses() {
-    return this.expensesService.returnAllExpenses();
+    return this.expensesService.returnAllExpensesAscending();
   }
 
   @Public()
@@ -28,13 +28,11 @@ export class ExpensesController {
     return this.expensesService.findOneExpense(id);
   }
 
-  @Public()
   @Post()
   createExpense(@Body() expense: ExpenseDto) {
     return this.expensesService.createExpense(expense);
   }
 
-  @Public()
   @Patch(':id')
   updateExpense(
     @Param('id') id: string,
@@ -43,13 +41,11 @@ export class ExpensesController {
     return this.expensesService.updateExpense(id, updatedExpense);
   }
 
-  @Public()
   @Delete()
   clearDatabase() {
     return this.expensesService.clearExpenseDatabase();
   }
 
-  @Public()
   @Delete(':id')
   removeExpense(@Param('id') id: string) {
     return this.expensesService.removeExpense(id);
