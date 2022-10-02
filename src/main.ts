@@ -6,6 +6,9 @@ import { CustomForbiddenFilter } from './common/filters/custom-exception.filter'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors({
+    origin: true,
+  });
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

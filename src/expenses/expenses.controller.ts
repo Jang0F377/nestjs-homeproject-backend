@@ -17,7 +17,6 @@ import { ExpensesService } from './expenses.service';
 export class ExpensesController {
   constructor(private readonly expensesService: ExpensesService) {}
 
-  @Public()
   @Get()
   returnAllExpenses() {
     return this.expensesService.returnAllExpenses();
