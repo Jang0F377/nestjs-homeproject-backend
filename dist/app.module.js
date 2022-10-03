@@ -24,7 +24,7 @@ AppModule = __decorate([
         imports: [
             expenses_module_1.ExpensesModule,
             projects_module_1.ProjectsModule,
-            mongoose_1.MongooseModule.forRoot('mongodb://localhost:27017/teaster-wednester'),
+            mongoose_1.MongooseModule.forRoot('mongodb://mongo:27017/server-mongo'),
             common_module_1.CommonModule,
             sarah_module_1.SarahModule,
             matt_module_1.MattModule,

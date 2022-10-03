@@ -13,7 +13,7 @@ import { LoginModule } from './login/login.module';
   imports: [
     ExpensesModule,
     ProjectsModule,
-    MongooseModule.forRoot('mongodb://localhost:27017/teaster-wednester'),
+    MongooseModule.forRoot('mongodb://root:pass1234@server-mongodb:27017'),
     CommonModule,
     SarahModule,
     MattModule,
