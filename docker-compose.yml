@@ -10,10 +10,10 @@ services:
       dockerfile: ./Dockerfile
     command: node dist/main
     ports:
-      - 3000:3000
+      - 80:3000
     networks:
       - server-network
-    restart: unless-stopped
+    restart: always
 
   mongo-express:
     image: mongo-express
@@ -29,7 +29,7 @@ services:
     networks:
       - server-network
     ports:
-      - 8081:8081
+      - 8082:8081
     restart: always
 
   mongodb:
