@@ -10,7 +10,7 @@ services:
       dockerfile: ./Dockerfile
     command: node dist/main
     ports:
-      - 80:3000
+      - 80:80
     networks:
       - server-network
     restart: always
@@ -20,7 +20,7 @@ services:
     container_name: server-mongo-express
     depends_on: [mongodb]
     environment:
-      ME_CONFIG_MONGODB_URL: 'mongodb://root:pass1234@server-mongodb:27017'
+      ME_CONFIG_MONGODB_URL: 'mongodb://root:pass1234@server-mongodb:80'
       ME_CONFIG_MONGODB_SERVER: '${MONGO_HOST}'
       ME_CONFIG_MONGODB_ADMINUSERNAME: '${MONGO_USERNAME}'
       ME_CONFIG_MONGODB_ADMINPASSWORD: '${MONGO_PASSWORD}'
@@ -29,7 +29,7 @@ services:
     networks:
       - server-network
     ports:
-      - 8082:8081
+      - 8081:8081
     restart: always
 
   mongodb:

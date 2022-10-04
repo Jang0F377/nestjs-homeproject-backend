@@ -19,7 +19,7 @@ RUN npm prune --production
 
 # Production deploy stage
 FROM node:16.14.2-alpine as production
-EXPOSE 3000
+EXPOSE 80
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
