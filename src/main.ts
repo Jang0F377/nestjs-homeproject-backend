@@ -19,10 +19,6 @@ async function bootstrap() {
       },
     }),
   );
-  app.useGlobalFilters(
-    new CustomForbiddenFilter(),
-    new CustomBlanketExceptionFilter(),
-  );
   await app.listen(3000);
 }
 bootstrap();
