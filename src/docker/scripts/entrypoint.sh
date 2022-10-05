@@ -1,1 +1,1 @@
-exec "node" "dist/main"
+exec "pm2-runtime" "dist/main"
