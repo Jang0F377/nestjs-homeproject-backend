@@ -6,14 +6,7 @@ import { ValidationPipe } from '@nestjs/common';
 import * as fs from 'fs';
 
 async function bootstrap() {
-  const httpsOptions = {
-    key: fs.readFileSync('secrets/private-key.pem', 'utf8'),
-    cert: fs.readFileSync('secrets/public-certificate.pem', 'utf8'),
-  };
-
-  const app = await NestFactory.create(AppModule, {
-    httpsOptions,
-  });
+  const app = await NestFactory.create(AppModule);
   app.enableCors({
     origin: true,
   });
@@ -27,6 +20,6 @@ async function bootstrap() {
       },
     }),
   );
-  await app.listen(80);
+  await app.listen(3000);
 }
 bootstrap();
