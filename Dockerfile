@@ -2,7 +2,7 @@ FROM node:16.14.2 AS build
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY ["package*.json","secrets/" , "./"]
 RUN npm set-script prepare '' && npm ci --production
 
 COPY scripts/build_prereq.sh ./
@@ -26,6 +26,7 @@ ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /app
 
+COPY secrets/ ./secrets
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
 COPY src/docker/scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
