@@ -16,13 +16,11 @@ import { ProjectsService } from './projects.service';
 export class ProjectsController {
   constructor(private readonly projectsService: ProjectsService) {}
 
-  @Public()
   @Get()
   returnAllProjects() {
     return this.projectsService.returnAllProjects();
   }
 
-  @Public()
   @Get(':id')
   findOneProject(@Param('id') id: string) {
     return this.projectsService.findOneProject(id);

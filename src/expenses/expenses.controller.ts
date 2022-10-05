@@ -16,13 +16,11 @@ import { ExpensesService } from './expenses.service';
 @Controller('expenses')
 export class ExpensesController {
   constructor(private readonly expensesService: ExpensesService) {}
-  @Public()
   @Get()
   returnAllExpenses() {
     return this.expensesService.returnAllExpensesAscending();
   }
 
-  @Public()
   @Get(':id')
   findOneExpense(@Param('id') id: string) {
     return this.expensesService.findOneExpense(id);
