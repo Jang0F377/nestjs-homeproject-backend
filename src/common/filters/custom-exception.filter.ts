@@ -5,7 +5,7 @@ import {
   ForbiddenException,
   HttpException,
 } from '@nestjs/common';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 
 @Catch(ForbiddenException)
 export class CustomForbiddenFilter<T extends HttpException>
@@ -25,6 +25,7 @@ export class CustomForbiddenFilter<T extends HttpException>
       ...error,
       timestamp: new Date().toISOString(),
       warning: 'This will be reported',
+      headers: ctx.getRequest<Request>().headers,
     });
   }
 }
