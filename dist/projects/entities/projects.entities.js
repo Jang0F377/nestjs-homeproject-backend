@@ -22,6 +22,13 @@ __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", Number)
 ], Project.prototype, "priority", void 0);
+__decorate([
+    (0, mongoose_1.Prop)((0, mongoose_1.raw)({
+        cost: { type: Number },
+        savedTowardCost: { type: Number },
+    })),
+    __metadata("design:type", Object)
+], Project.prototype, "details", void 0);
 Project = __decorate([
     (0, mongoose_1.Schema)()
 ], Project);

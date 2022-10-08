@@ -1,4 +1,11 @@
-import { IsInt, IsString, Max, Min } from 'class-validator';
+import {
+  IsInt,
+  IsObject,
+  IsOptional,
+  IsString,
+  Max,
+  Min,
+} from 'class-validator';
 
 export class SarahDto {
   @IsString()
@@ -12,4 +19,10 @@ export class SarahDto {
     message: 'Priority must be a number <=  100',
   })
   readonly priority: number;
+  @IsObject()
+  @IsOptional()
+  readonly details: {
+    cost: number;
+    savedTowardCost: number;
+  };
 }

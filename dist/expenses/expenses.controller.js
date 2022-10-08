@@ -14,7 +14,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExpensesController = void 0;
 const common_1 = require("@nestjs/common");
-const public_decorator_1 = require("../common/decorators/public.decorator");
 const expense_dto_1 = require("./dto/expense.dto");
 const update_expense_dto_1 = require("./dto/update-expense.dto");
 const expenses_service_1 = require("./expenses.service");
@@ -42,14 +41,12 @@ let ExpensesController = class ExpensesController {
     }
 };
 __decorate([
-    (0, public_decorator_1.Public)(),
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ExpensesController.prototype, "returnAllExpenses", null);
 __decorate([
-    (0, public_decorator_1.Public)(),
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),

@@ -1,4 +1,12 @@
-import { IsInt, IsString, Max, Min } from 'class-validator';
+import {
+  IsInt,
+  IsNumber,
+  IsObject,
+  IsOptional,
+  IsString,
+  Max,
+  Min,
+} from 'class-validator';
 
 export class ProjectDto {
   @IsString()
@@ -12,4 +20,11 @@ export class ProjectDto {
     message: 'Priority must be a number <=  100',
   })
   readonly priority: number;
+
+  @IsObject()
+  @IsOptional()
+  readonly details: {
+    cost: number;
+    savedTowardCost: number;
+  };
 }

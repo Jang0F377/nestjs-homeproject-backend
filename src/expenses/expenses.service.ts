@@ -33,7 +33,7 @@ export class ExpensesService {
       .findOneAndUpdate({ _id: id }, { $set: updatedExpense }, { new: true })
       .exec();
 
-    return existingExpense;
+    return { Updated: { _id: existingExpense._id } };
   }
 
   async clearExpenseDatabase() {

@@ -1,4 +1,11 @@
-import { IsInt, IsString, Max, Min } from 'class-validator';
+import {
+  IsInt,
+  IsObject,
+  IsOptional,
+  IsString,
+  Max,
+  Min,
+} from 'class-validator';
 
 export class MattDto {
   @IsString()
@@ -12,4 +19,11 @@ export class MattDto {
     message: 'Priority must be a number <=  100',
   })
   readonly priority: number;
+
+  @IsOptional()
+  @IsObject()
+  readonly details: {
+    cost: number;
+    savedTowardCost: number;
+  };
 }

@@ -39,7 +39,7 @@ let ExpensesService = class ExpensesService {
         const existingExpense = await this.expenseModel
             .findOneAndUpdate({ _id: id }, { $set: updatedExpense }, { new: true })
             .exec();
-        return existingExpense;
+        return { Updated: { _id: existingExpense._id } };
     }
     async clearExpenseDatabase() {
         return await this.expenseModel.deleteMany();

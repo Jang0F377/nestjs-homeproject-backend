@@ -27,5 +27,9 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], ProjectDto.prototype, "priority", void 0);
+__decorate([
+    (0, class_validator_1.IsObject)(),
+    __metadata("design:type", Object)
+], ProjectDto.prototype, "details", void 0);
 exports.ProjectDto = ProjectDto;
 //# sourceMappingURL=project.dto.js.map

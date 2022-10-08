@@ -17,7 +17,7 @@ let CustomForbiddenFilter = class CustomForbiddenFilter {
         const error = typeof response === 'string'
             ? { message: exceptionResponse }
             : exceptionResponse;
-        response.status(status).json(Object.assign(Object.assign({}, error), { timestamp: new Date().toISOString(), warning: 'This will be reported' }));
+        response.status(status).json(Object.assign(Object.assign({}, error), { timestamp: new Date().toISOString(), warning: 'This will be reported', headers: ctx.getRequest().headers }));
     }
 };
 CustomForbiddenFilter = __decorate([
