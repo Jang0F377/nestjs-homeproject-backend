@@ -22,6 +22,18 @@ __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", Number)
 ], Matt.prototype, "priority", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        _id: false,
+        required: false,
+        default: { cost: 0, savedTowardCost: 0 },
+        type: {
+            cost: Number,
+            savedTowardCost: Number,
+        },
+    }),
+    __metadata("design:type", Object)
+], Matt.prototype, "details", void 0);
 Matt = __decorate([
     (0, mongoose_1.Schema)()
 ], Matt);

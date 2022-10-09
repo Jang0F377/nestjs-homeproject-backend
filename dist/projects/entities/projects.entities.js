@@ -23,10 +23,15 @@ __decorate([
     __metadata("design:type", Number)
 ], Project.prototype, "priority", void 0);
 __decorate([
-    (0, mongoose_1.Prop)((0, mongoose_1.raw)({
-        cost: { type: Number },
-        savedTowardCost: { type: Number },
-    })),
+    (0, mongoose_1.Prop)({
+        _id: false,
+        required: false,
+        default: { cost: 0, savedTowardCost: 0 },
+        type: {
+            cost: Number,
+            savedTowardCost: Number,
+        },
+    }),
     __metadata("design:type", Object)
 ], Project.prototype, "details", void 0);
 Project = __decorate([

@@ -27,5 +27,10 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], SarahDto.prototype, "priority", void 0);
+__decorate([
+    (0, class_validator_1.IsObject)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Object)
+], SarahDto.prototype, "details", void 0);
 exports.SarahDto = SarahDto;
 //# sourceMappingURL=sarah.dto.js.map

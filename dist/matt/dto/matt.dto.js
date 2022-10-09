@@ -27,5 +27,10 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], MattDto.prototype, "priority", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsObject)(),
+    __metadata("design:type", Object)
+], MattDto.prototype, "details", void 0);
 exports.MattDto = MattDto;
 //# sourceMappingURL=matt.dto.js.map

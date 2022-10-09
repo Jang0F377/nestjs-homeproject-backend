@@ -26,5 +26,6 @@ import { Document } from 'mongoose';
 export declare class Sarah extends Document {
     name: string;
     priority: number;
+    details: Record<string, any>;
 }
 export declare const SarahSchema: import("mongoose").Schema<Sarah, import("mongoose").Model<Sarah, any, any, any, any>, {}, {}, {}, {}, "type", Sarah>;

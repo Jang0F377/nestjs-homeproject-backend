@@ -26,5 +26,6 @@ import { Document } from 'mongoose';
 export declare class Matt extends Document {
     name: string;
     priority: number;
+    details: Record<string, any>;
 }
 export declare const MattSchema: import("mongoose").Schema<Matt, import("mongoose").Model<Matt, any, any, any, any>, {}, {}, {}, {}, "type", Matt>;

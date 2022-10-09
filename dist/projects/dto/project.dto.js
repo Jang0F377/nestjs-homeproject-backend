@@ -29,6 +29,7 @@ __decorate([
 ], ProjectDto.prototype, "priority", void 0);
 __decorate([
     (0, class_validator_1.IsObject)(),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Object)
 ], ProjectDto.prototype, "details", void 0);
 exports.ProjectDto = ProjectDto;
