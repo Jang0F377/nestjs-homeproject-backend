@@ -1,8 +1,7 @@
-import { Model } from 'mongoose';
-import { LoginDto } from './dto/login.dto';
-import { Login } from './entities/login.entity';
+import { UserDto } from 'src/users/dto/user.dto';
+import { UsersService } from 'src/users/users.service';
 export declare class LoginService {
-    private readonly loginModel;
-    constructor(loginModel: Model<Login>);
-    validateCredentials(credentials: LoginDto): boolean;
+    private readonly userService;
+    constructor(userService: UsersService);
+    validateUser(credentials: UserDto): Promise<boolean>;
 }

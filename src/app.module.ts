@@ -8,6 +8,7 @@ import { CommonModule } from './common/common.module';
 import { SarahModule } from './sarah/sarah.module';
 import { MattModule } from './matt/matt.module';
 import { LoginModule } from './login/login.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { LoginModule } from './login/login.module';
     SarahModule,
     MattModule,
     LoginModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

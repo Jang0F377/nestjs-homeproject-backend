@@ -17,6 +17,7 @@ const common_module_1 = require("./common/common.module");
 const sarah_module_1 = require("./sarah/sarah.module");
 const matt_module_1 = require("./matt/matt.module");
 const login_module_1 = require("./login/login.module");
+const users_module_1 = require("./users/users.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -29,6 +30,7 @@ AppModule = __decorate([
             sarah_module_1.SarahModule,
             matt_module_1.MattModule,
             login_module_1.LoginModule,
+            users_module_1.UsersModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

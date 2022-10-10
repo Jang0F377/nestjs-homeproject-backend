@@ -9,20 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LoginService = void 0;
-const common_1 = require("@nestjs/common");
-const users_service_1 = require("../users/users.service");
-let LoginService = class LoginService {
-    constructor(userService) {
-        this.userService = userService;
-    }
-    async validateUser(credentials) {
-        return this.userService.validatePassword(credentials);
-    }
+exports.UserSchema = exports.User = void 0;
+const mongoose_1 = require("@nestjs/mongoose");
+const mongoose_2 = require("mongoose");
+let User = class User extends mongoose_2.Document {
 };
-LoginService = __decorate([
-    (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [users_service_1.UsersService])
-], LoginService);
-exports.LoginService = LoginService;
-//# sourceMappingURL=login.service.js.map
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], User.prototype, "username", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], User.prototype, "password", void 0);
+User = __decorate([
+    (0, mongoose_1.Schema)()
+], User);
+exports.User = User;
+exports.UserSchema = mongoose_1.SchemaFactory.createForClass(User);
+//# sourceMappingURL=user.entities.js.map

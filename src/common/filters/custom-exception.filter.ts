@@ -4,10 +4,11 @@ import {
   ExceptionFilter,
   ForbiddenException,
   HttpException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 
-@Catch(ForbiddenException)
+@Catch(ForbiddenException, UnauthorizedException)
 export class CustomForbiddenFilter<T extends HttpException>
   implements ExceptionFilter
 {

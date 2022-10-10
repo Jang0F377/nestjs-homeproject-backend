@@ -21,7 +21,7 @@ let CustomForbiddenFilter = class CustomForbiddenFilter {
     }
 };
 CustomForbiddenFilter = __decorate([
-    (0, common_1.Catch)(common_1.ForbiddenException)
+    (0, common_1.Catch)(common_1.ForbiddenException, common_1.UnauthorizedException)
 ], CustomForbiddenFilter);
 exports.CustomForbiddenFilter = CustomForbiddenFilter;
 //# sourceMappingURL=custom-exception.filter.js.map
